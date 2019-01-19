@@ -1,0 +1,13 @@
+<resources>
+    <string name="app_name">SimpleFragment</string>
+    <string name="text_view_01">Fragment View 01</string>
+    <string name="text_view_02">Fragment View 02</string>
+    <string name="text_view_03">Fragment View 03</string>
+    <string name="text_view_04">Fragment View 04</string>
+    <string name="button_view_foo">FOO</string>
+    <string name="button_view_bar">BAR</string>
+    <string name="button_view_hot">HOT</string>
+    <string name="button_view_cold">COLD</string>
+    <string name="main_action_switch">Switch</string>
+    <string name="message_switch_fragment">Switch view TRIGGER!!!</string>
+</resources>
