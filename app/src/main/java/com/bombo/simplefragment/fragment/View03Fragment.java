@@ -9,14 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bombo.simplefragment.R;
 
 public class View03Fragment extends Fragment {
 
+    public static final String TAG = View03Fragment.class.getSimpleName();
+
     private TextView textFragmentView03;
     private Button buttonFragmentView03;
+    private Hot03ClickEventListener hot03ClickEventListener;
+
+    public void setHot03ClickEventListener(Hot03ClickEventListener hot03ClickEventListener) {
+        this.hot03ClickEventListener = hot03ClickEventListener;
+    }
 
     @Nullable
     @Override
@@ -36,8 +42,13 @@ public class View03Fragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getActivity(), "HOT", Toast.LENGTH_SHORT).show();
+                hot03ClickEventListener.onHot03Click("HOT Press");
             }
         });
+    }
+
+    public interface Hot03ClickEventListener {
+
+        void onHot03Click(String message);
     }
 }

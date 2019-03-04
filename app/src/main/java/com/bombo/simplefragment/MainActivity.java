@@ -38,6 +38,47 @@ public class MainActivity extends AppCompatActivity {
         fragmentView04 = new View04Fragment();
 
         deployFragmentAtFirstTime();
+
+        setUpFragmentEventListener();
+    }
+
+    private void setUpFragmentEventListener() {
+
+        ((View01Fragment) fragmentView01).setFoo01ClickEventListener(new View01Fragment.Foo01ClickEventListener() {
+            @Override
+            public void onFoo01Click(String message) {
+                showToastMessage(message);
+                switchFragment();
+            }
+        });
+
+        ((View02Fragment) fragmentView02).setBar02ClickEventListener(new View02Fragment.Bar02ClickEventListener() {
+            @Override
+            public void onBar02Click(String message) {
+                showToastMessage(message);
+                switchFragment();
+            }
+        });
+
+        ((View03Fragment) fragmentView03).setHot03ClickEventListener(new View03Fragment.Hot03ClickEventListener() {
+            @Override
+            public void onHot03Click(String message) {
+                showToastMessage(message);
+                switchFragment();
+            }
+        });
+
+        ((View04Fragment) fragmentView04).setCold04ClickEventListener(new View04Fragment.Cold04ClickEventListener() {
+            @Override
+            public void onCold04Click(String message) {
+                showToastMessage(message);
+                switchFragment();
+            }
+        });
+    }
+
+    private void showToastMessage(String message) {
+        Toast.makeText(MainActivity.this, message, Toast.LENGTH_SHORT).show();
     }
 
     @Override

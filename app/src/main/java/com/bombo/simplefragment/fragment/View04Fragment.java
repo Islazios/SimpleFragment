@@ -9,14 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bombo.simplefragment.R;
 
 public class View04Fragment extends Fragment {
 
+    public static final String TAG = View04Fragment.class.getSimpleName();
+
     private TextView textFragmentView04;
     private Button buttonFragmentView04;
+    private Cold04ClickEventListener cold04ClickEventListener;
+
+    public void setCold04ClickEventListener(Cold04ClickEventListener cold04ClickEventListener) {
+        this.cold04ClickEventListener = cold04ClickEventListener;
+    }
 
     @Nullable
     @Override
@@ -36,8 +42,13 @@ public class View04Fragment extends Fragment {
             @Override
             public void onClick(View v) {
 
-                Toast.makeText(getActivity(), "COLD", Toast.LENGTH_SHORT).show();
+                cold04ClickEventListener.onCold04Click("COLD Press");
             }
         });
+    }
+
+    public interface Cold04ClickEventListener {
+
+        void onCold04Click(String message);
     }
 }

@@ -9,14 +9,20 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
-import android.widget.Toast;
 
 import com.bombo.simplefragment.R;
 
 public class View02Fragment extends Fragment {
 
+    public static final String TAG = View02Fragment.class.getSimpleName();
+
     private TextView textFragmentView02;
     private Button buttonFragmentView02;
+    private Bar02ClickEventListener bar02ClickEventListener;
+
+    public void setBar02ClickEventListener(Bar02ClickEventListener bar02ClickEventListener) {
+        this.bar02ClickEventListener = bar02ClickEventListener;
+    }
 
     @Nullable
     @Override
@@ -35,8 +41,13 @@ public class View02Fragment extends Fragment {
         buttonFragmentView02.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Toast.makeText(getActivity(), "BAR", Toast.LENGTH_SHORT).show();
+                bar02ClickEventListener.onBar02Click("BAR Press");
             }
         });
+    }
+
+    public interface Bar02ClickEventListener {
+
+        void onBar02Click(String message);
     }
 }
